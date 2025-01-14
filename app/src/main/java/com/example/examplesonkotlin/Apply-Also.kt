@@ -11,6 +11,10 @@ data class Person2(var name: String, var age: Int, var about: String){
     constructor() : this("",0,"")
 }
 
+fun writeCreationLog(p: Person2){
+    println("A new person ${p.name} was created.")
+}
+
 fun main(){
     val steve = Person2()
     val steveDescrip= steve.apply {
@@ -19,4 +23,10 @@ fun main(){
         about="Minecraft player"
     }
     println(steveDescrip)
+
+    //To create a new person to add to the object we can use also, it takes the object and preforms the block of code in
+    //In the also block with the referenced object
+    val jake = Person2("Jake",30,"Baker").also {
+        writeCreationLog(it)
+    }
 }
